@@ -151,4 +151,20 @@ class Movie extends ApiBaseObject{
 	public function getMediaType(){
 		return self::MEDIA_TYPE_MOVIE;
 	}
+
+	public function getReleasedates(){
+		$results = $this->get('release_dates');
+
+		if(array_key_exists('results', $results)){
+			$releasedates = [];
+
+			foreach($results['results'] as $releasedateData){
+				$releasedates[] = new Releasedate($releasedateData);
+			}
+
+			return $releasedates;
+		}
+
+		return $results;
+	}
 }

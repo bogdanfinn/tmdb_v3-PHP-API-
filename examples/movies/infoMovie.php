@@ -12,6 +12,13 @@
 
                     </ul>
                     <img src="'. $tmdb->getImageURL('w185') . $movie->getPoster() .'"/></li>
+
+                    <p>Releasedates:</p>
+                    <ul>';
+                        foreach($movie->getReleasedates() as $releasedate){
+
+                        }
+                    echo'</ul>
                     <ul>
                         <li>Cast:
                             <ul>';
