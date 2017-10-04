@@ -9,7 +9,7 @@
  * 	@link https://github.com/Alvaroctal/TMDB-PHP-API
  * 	@copyright Licensed under BSD (http://www.opensource.org/licenses/bsd-license.php)
  */
-class Movie extends ApiBaseObject{
+class Movie extends ApiMediaObject{
 
 	private $_tmdb;
 

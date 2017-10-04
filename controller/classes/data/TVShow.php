@@ -10,7 +10,7 @@
  * 	@copyright Licensed under BSD (http://www.opensource.org/licenses/bsd-license.php)
  */
 
-class TVShow extends ApiBaseObject{
+class TVShow extends ApiMediaObject{
 
     //------------------------------------------------------------------------------
     // Get Variables
@@ -110,19 +110,6 @@ class TVShow extends ApiBaseObject{
      */
     public function getInProduction() {
         return $this->_data['in_production'];
-    }
-
-    //------------------------------------------------------------------------------
-    // Export
-    //------------------------------------------------------------------------------
-
-    /**
-     * 	Get the JSON representation of the TVShow
-     *
-     * 	@return string
-     */
-    public function getJSON() {
-        return json_encode($this->_data, JSON_PRETTY_PRINT);
     }
 
     /**

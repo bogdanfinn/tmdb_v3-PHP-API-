@@ -10,36 +10,20 @@
  * 	@copyright Licensed under BSD (http://www.opensource.org/licenses/bsd-license.php)
  */
 
-class Episode{
-
-    //------------------------------------------------------------------------------
-    // Class Variables
-    //------------------------------------------------------------------------------
-
-    private $_data;
+class Episode extends ApiBaseObject{
 
     /**
      * 	Construct Class
      *
      * 	@param array $data An array with the data of the Episode
+     *  @param $idTVShow
      */
     public function __construct($data, $idTVShow = 0) {
-        $this->_data = $data;
+        parent::__construct($data);
+
         $this->_data['tvshow_id'] = $idTVShow;
     }
 
-    //------------------------------------------------------------------------------
-    // Get Variables
-    //------------------------------------------------------------------------------
-
-    /**
-     * 	Get the episode's id
-     *
-     * 	@return int
-     */
-    public function getID() {
-        return $this->_data['id'];
-    }
 
     /**
      * 	Get the Episode's name
@@ -47,7 +31,7 @@ class Episode{
      * 	@return string
      */
     public function getName() {
-        return $this->_data['name'];
+        return $this->get('name');
     }
 
     /**
@@ -56,7 +40,7 @@ class Episode{
      *  @return int
      */
     public function getTVShowID() {
-        return $this->_data['tvshow_id'];
+        return $this->get('tvshow_id');
     }
 
     /**
@@ -65,7 +49,7 @@ class Episode{
      *  @return int
      */
     public function getSeasonNumber() {
-        return $this->_data['season_number'];
+        return $this->get('season_number');
     }
 
     /**
@@ -74,7 +58,7 @@ class Episode{
      * 	@return string
      */
     public function getEpisodeNumber() {
-        return $this->_data['episode_number'];
+        return $this->get('episode_number');
     }
 
     /**
@@ -83,7 +67,7 @@ class Episode{
      *  @return string
      */
     public function getOverview() {
-        return $this->_data['overview'];
+        return $this->get('overview');
     }
 
     /**
@@ -92,7 +76,7 @@ class Episode{
      * 	@return string
      */
     public function getStill() {
-        return $this->_data['still_path'];
+        return $this->get('still_path');
     }
 
     /**
@@ -101,7 +85,7 @@ class Episode{
      * 	@return string
      */
     public function getAirDate() {
-        return $this->_data['air_date'];
+        return $this->get('air_date');
     }
 
     /**
@@ -110,7 +94,7 @@ class Episode{
      * 	@return int
      */
     public function getVoteAverage() {
-        return $this->_data['vote_average'];
+        return $this->get('vote_average');
     }
 
     /**
@@ -119,31 +103,6 @@ class Episode{
      * 	@return int
      */
     public function getVoteCount() {
-        return $this->_data['vote_count'];
-    }
-
-    /**
-     *  Get Generic.<br>
-     *  Get a item of the array, you should not get used to use this, better use specific get's.
-     *
-     * 	@param string $item The item of the $data array you want
-     * 	@return array
-     */
-    public function get($item = ''){
-        return (empty($item)) ? $this->_data : $this->_data[$item];
-    }
-
-    //------------------------------------------------------------------------------
-    // Export
-    //------------------------------------------------------------------------------
-
-    /**
-     * 	Get the JSON representation of the Episode
-     *
-     * 	@return string
-     */
-    public function getJSON() {
-        return json_encode($this->_data, JSON_PRETTY_PRINT);
+        return $this->get('vote_count');
     }
 }
-?>
